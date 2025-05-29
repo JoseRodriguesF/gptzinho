@@ -1,93 +1,79 @@
-Aqui está o README formatado para o GitHub com base na documentação fornecida:
+# GPTZINHO - Interface Gráfica para ChatGPT
 
----
+GPTZINHO é uma aplicação desktop que permite interagir com os modelos de linguagem da OpenAI (GPT-3.5 e GPT-4) através de uma interface gráfica amigável e intuitiva, desenvolvida com PyQt5.
 
-# GPTZINHO
+## 🚀 Funcionalidades
 
-GPTZINHO é uma aplicação de chat baseada no ChatGPT usando PyQt5 e a API da OpenAI. Esta aplicação permite ao usuário interagir com modelos de linguagem AI, como GPT-3.5 e GPT-4, simulando uma interação com o ChatGPT.
+- 💬 Interface de chat intuitiva e responsiva
+- 🤖 Suporte para dois modelos de IA:
+  - GPT-3.5 Turbo (16K)
+  - GPT-4
+- ⚙️ Controle de temperatura para ajustar a criatividade das respostas
+- 📊 Contagem de tokens e caracteres em tempo real
+- 🔄 Histórico de conversas mantido para contexto
+- 🎨 Interface personalizável com cores e estilos
 
-## Sumário
+## 📋 Pré-requisitos
 
-- [Instalação](#instalação)
-- [Configuração](#configuração)
-- [Funcionalidades](#funcionalidades)
-- [Como Usar](#como-usar)
-- [Estilo e Aparência](#estilo-e-aparência)
-- [Conclusão](#conclusão)
+- Python 3.x
+- Chave de API da OpenAI
+- Conexão com a internet
 
-## Instalação
+## 🔧 Instalação
 
-Para executar esta aplicação, você precisará ter o Python e as seguintes dependências instaladas:
+1. Clone este repositório:
+```bash
+git clone [URL_DO_REPOSITÓRIO]
+```
 
-- PyQt5
-- requests
-- python-dotenv
-
-Use o comando abaixo para instalar as dependências:
-
+2. Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configuração
-
-Antes de iniciar a aplicação, crie um arquivo `.env` na raiz do projeto e adicione a chave API da OpenAI:
-
-```env
-API_KEY=your_openai_api_key
+3. Crie um arquivo `.env` na raiz do projeto e adicione sua chave API:
+```
+API_KEY=sua_chave_api_aqui
 ```
 
-## Funcionalidades
+## 🎮 Como Usar
 
-### Classes Principais
+1. Execute o aplicativo:
+```bash
+python app.py
+```
 
-#### Worker (QThread)
-Gerencia solicitações assíncronas à API da OpenAI, evitando bloqueios na interface gráfica.
+2. Na interface:
+   - Digite sua mensagem na área de texto
+   - Use os botões GPT3/GPT4 para alternar entre modelos
+   - Ajuste a temperatura usando os botões + e -
+   - Clique em ">>>" para enviar sua mensagem
+   - Use "X" para limpar os campos
 
-- **Métodos**:
-  - `run()`: Executa a solicitação para a API e emite um sinal quando a resposta é recebida.
-  - `enviar_solicitacao_openai()`: Monta e envia a solicitação para a API e retorna os dados relevantes.
+## ⚙️ Configurações
 
-#### ChatApp (QWidget)
-Classe principal da aplicação, responsável pela interface gráfica do usuário.
+- **Temperatura**: Controla a criatividade das respostas (0.0 a 1.0)
+- **Modelos disponíveis**:
+  - GPT-3.5 Turbo (16K): Mais rápido e econômico
+  - GPT-4: Mais preciso e avançado
 
-- **Atributos**:
-  - `modelo`: Armazena o modelo da API utilizado.
-  - `temperatura`: Define a temperatura do modelo para geração de texto.
-  - `historico_conversa`: Armazena o histórico de conversas.
+## 🛠️ Tecnologias Utilizadas
 
-- **Métodos**:
-  - `__init__()`: Inicializa a interface gráfica.
-  - `aumentar_temperatura()`, `diminuir_temperatura()`: Ajustam a temperatura do modelo.
-  - `mudar_modelo_gpt3()`, `mudar_modelo_gpt4()`: Alteram o modelo da API utilizado.
-  - `enviar_mensagem()`: Envia a mensagem do usuário e atualiza a interface.
-  - `atualizar_ui()`: Atualiza a interface com a resposta da API.
-  - `limpar_campos()`: Limpa os campos de entrada de texto e área de resultados.
+- Python
+- PyQt5 (Interface gráfica)
+- OpenAI API
+- Requests (Comunicação HTTP)
+- Python-dotenv (Gerenciamento de variáveis de ambiente)
+- Tiktoken (Contagem de tokens)
 
-### Layout e Widgets
+## 🤝 Contribuindo
 
-A interface é composta por várias áreas:
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
 
-- **Área de entrada de texto**: Onde o usuário digita suas mensagens.
-- **Área de exibição de resultados**: Onde são exibidas as mensagens e respostas da AI.
-- **Contadores de tokens e caracteres**: Mostram a contagem de tokens e caracteres digitados.
-- **Botões de ação**: Incluem opções para enviar mensagens, limpar campos, ajustar temperatura e trocar de modelos.
+## 📝 Licença
 
-## Como Usar
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-1. Inicie a aplicação executando o arquivo principal.
-2. Digite sua mensagem na área de entrada de texto.
-3. Clique em "Enviar" para interagir com o modelo de linguagem.
-4. Utilize os botões para ajustar a temperatura e trocar entre modelos GPT-3 e GPT-4.
+## 📧 Contato
 
-## Estilo e Aparência
-
-A personalização da aparência dos widgets é realizada através de métodos específicos que definem cores e estilos para diferentes componentes da interface.
-
-## Conclusão
-
-Esta aplicação é um exemplo robusto de como integrar tecnologias de AI em aplicações interativas baseadas em GUI, proporcionando uma plataforma para interações baseadas em texto com modelos de linguagem avançados.
-
----
-
-Sinta-se à vontade para ajustar e personalizar o README conforme necessário para atender às suas necessidades específicas no GitHub.
+Para sugestões, dúvidas ou problemas, abra uma issue no repositório.
